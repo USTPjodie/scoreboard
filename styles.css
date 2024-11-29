@@ -1,0 +1,195 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  /*background-color: #333; /* Dark grey background */
+  background-image: url('background.png'); /* Path to your background image */
+  background-size: cover; /* Ensure the image covers the entire page */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent repetition of the image */
+  color: #f5f5f5; /* Light grey text */
+  margin: 0;
+  padding: 0;
+}
+/* Import font and general styles */
+@import url("https://fonts.googleapis.com/css?family=Raleway:400");
+
+* {
+  box-sizing: border-box;
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 90deg;
+  inherits: true;
+}
+
+@property --gradX {
+  syntax: '<percentage>';
+  initial-value: 50%;
+  inherits: true;
+}
+
+@property --gradY {
+  syntax: '<percentage>';
+  initial-value: 0%;
+  inherits: true;
+}
+
+:root {
+  --d: 2500ms;
+  --angle: 90deg;
+  --gradX: 100%;
+  --gradY: 50%;
+  --c1: silver; /* Teal */
+  --c2: rgba(172, 172, 172, 0.1); /* Medium grey with transparency */
+}
+
+/* Updated container style */
+.container {
+  width: 80%;
+  margin: 40px auto;
+  background-color: rgba(88, 88, 88, 0.2); /* Dark grey with opacity */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft black shadow */
+  font-family: Raleway, sans-serif;
+
+  /* Gradient animation border */
+  border: 0.35rem solid;
+  padding: 2rem;
+  border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
+  animation: borderRotate var(--d) linear infinite forwards;
+}
+
+/* Alternative radial gradient for effect */
+.container.alternate {
+  border-image: radial-gradient(
+      ellipse at var(--gradX) var(--gradY),
+      var(--c1),
+      var(--c1) 10%,
+      var(--c2) 40%
+    )
+    30;
+  animation: borderRadial var(--d) linear infinite forwards;
+}
+
+/* Keyframes for animations */
+@keyframes borderRotate {
+  100% {
+    --angle: 420deg;
+  }
+}
+
+@keyframes borderRadial {
+  20% {
+    --gradX: 100%;
+    --gradY: 50%;
+  }
+  40% {
+    --gradX: 100%;
+    --gradY: 100%;
+  }
+  60% {
+    --gradX: 50%;
+    --gradY: 100%;
+  }
+  80% {
+    --gradX: 0%;
+    --gradY: 50%;
+  }
+  100% {
+    --gradX: 50%;
+    --gradY: 0%;
+  }
+}
+
+h1 {
+  text-align: center;
+  color: white; /* Teal */
+  font-size: 50px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: #f5f5f5;
+}
+
+th {
+  height: 40px;
+  background-color: #4d0000; /* Dark grey for header */
+  color: #f5f5f5;
+}
+
+td {
+  border-bottom: 1px solid #555; /* Lighter grey border for rows */
+}
+
+img {
+  width: 30px;
+  height: 30px;
+  border-radius: 10%;
+}
+
+/* Rank Highlighting */
+.rank-1 {
+  background-color: gold;
+  color: black;
+}
+
+.rank-2 {
+  background-color: silver;
+  color: black;
+}
+
+.rank-3 {
+  background-color: #cd7f32; /* Bronze */
+  color: black;
+}
+
+/* Pagination Styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  background-color: #444; /* Dark grey button background */
+  color: #f5f5f5;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #666; /* Lighter grey button on hover */
+}
+
+button:disabled {
+  background-color: #777; /* Disabled button color */
+  cursor: not-allowed;
+}
+
+/* Ensure that the rows fit without scroll */
+tr {
+  height: 35px;
+  background-color: #444; /* Dark grey row background */
+}
+
+/* Style for rows on hover */
+tr:hover {
+  background-color: #555; /* Slightly lighter grey on hover */
+}

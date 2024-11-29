@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaderboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🏆 LEADERBOARD 🏆</h1>
+    <table id="leaderboard">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Rider</th>
+          <th>Time Finished</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Rider rows will be added here dynamically -->
+      </tbody>
+    </table>
+    <div class="pagination">
+      <button id="prev" onclick="changePage(-1)">Previous</button>
+      <button id="next" onclick="changePage(1)">Next</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
