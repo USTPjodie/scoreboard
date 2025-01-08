@@ -1,195 +1,120 @@
-/* General Styles */
 body {
-  font-family: Arial, sans-serif;
-  /*background-color: #333; /* Dark grey background */
-  background-image: url('background.png'); /* Path to your background image */
-  background-size: cover; /* Ensure the image covers the entire page */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Prevent repetition of the image */
-  color: #f5f5f5; /* Light grey text */
-  margin: 0;
-  padding: 0;
-}
-/* Import font and general styles */
-@import url("https://fonts.googleapis.com/css?family=Raleway:400");
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff;
+  }
 
-* {
-  box-sizing: border-box;
-}
-
-@property --angle {
-  syntax: '<angle>';
-  initial-value: 90deg;
-  inherits: true;
-}
-
-@property --gradX {
-  syntax: '<percentage>';
-  initial-value: 50%;
-  inherits: true;
-}
-
-@property --gradY {
-  syntax: '<percentage>';
-  initial-value: 0%;
-  inherits: true;
-}
-
-:root {
-  --d: 2500ms;
-  --angle: 90deg;
-  --gradX: 100%;
-  --gradY: 50%;
-  --c1: silver; /* Teal */
-  --c2: rgba(172, 172, 172, 0.1); /* Medium grey with transparency */
-}
-
-/* Updated container style */
 .container {
-  width: 80%;
-  margin: 40px auto;
-  background-color: rgba(88, 88, 88, 0.2); /* Dark grey with opacity */
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft black shadow */
-  font-family: Raleway, sans-serif;
-
-  /* Gradient animation border */
-  border: 0.35rem solid;
-  padding: 2rem;
-  border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
-  animation: borderRotate var(--d) linear infinite forwards;
+  padding: 20px;
 }
 
-/* Alternative radial gradient for effect */
-.container.alternate {
-  border-image: radial-gradient(
-      ellipse at var(--gradX) var(--gradY),
-      var(--c1),
-      var(--c1) 10%,
-      var(--c2) 40%
-    )
-    30;
-  animation: borderRadial var(--d) linear infinite forwards;
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: rgba(51, 51, 51, 0.9); /* Adjust alpha value (0 to 1) for transparency */
+    border-bottom: 2px solid #555;
+  }
+
+.header h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #ffcc00;
 }
 
-/* Keyframes for animations */
-@keyframes borderRotate {
-  100% {
-    --angle: 420deg;
-  }
-}
-
-@keyframes borderRadial {
-  20% {
-    --gradX: 100%;
-    --gradY: 50%;
-  }
-  40% {
-    --gradX: 100%;
-    --gradY: 100%;
-  }
-  60% {
-    --gradX: 50%;
-    --gradY: 100%;
-  }
-  80% {
-    --gradX: 0%;
-    --gradY: 50%;
-  }
-  100% {
-    --gradX: 50%;
-    --gradY: 0%;
-  }
-}
-
-h1 {
-  text-align: center;
-  color: white; /* Teal */
-  font-size: 50px;
-  margin-bottom: 0px;
-  margin-top: 0px;
-}
-
-table {
+.leaderboard {
   width: 100%;
   border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 14px;
+  border-radius: 10px;
 }
 
-th, td {
-  padding: 10px;
+.leaderboard th,
+.leaderboard td {
   text-align: center;
-  font-size: 30px;
-  font-weight: bold;
-  color: #f5f5f5;
+  padding: 10px;
 }
 
-th {
-  height: 40px;
-  background-color: #4d0000; /* Dark grey for header */
-  color: #f5f5f5;
+.leaderboard th {
+  background: #444;
+  color: #ffcc00;
 }
 
-td {
-  border-bottom: 1px solid #555; /* Lighter grey border for rows */
+.leaderboard tr {
+  background: #292929;
 }
 
-img {
-  width: 30px;
-  height: 30px;
-  border-radius: 10%;
+.leaderboard tr:nth-child(odd) {
+  background: #333;
 }
 
-/* Rank Highlighting */
-.rank-1 {
-  background-color: gold;
-  color: black;
+.leaderboard tr:hover {
+  background: #444;
 }
 
-.rank-2 {
-  background-color: silver;
-  color: black;
-}
-
-.rank-3 {
-  background-color: #cd7f32; /* Bronze */
-  color: black;
-}
-
-/* Pagination Styles */
-.pagination {
+.status-panel {
   display: flex;
-  justify-content: center;
-  margin-top: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-button {
-  padding: 10px 20px;
-  margin: 0 10px;
-  background-color: #444; /* Dark grey button background */
-  color: #f5f5f5;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
+.panel {
+  flex: 1;
+  min-width: 300px;
+  background: #292929;
+  padding: 10px;
+  border: 2px solid #444;
+  border-radius: 10px;
+}
+
+.panel h3 {
+  margin: 0 0 10px;
   font-size: 16px;
-  transition: background-color 0.3s ease;
+  color: #ffcc00;
 }
 
-button:hover {
-  background-color: #666; /* Lighter grey button on hover */
+.metrics {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
 }
 
-button:disabled {
-  background-color: #777; /* Disabled button color */
-  cursor: not-allowed;
+.green {
+  color: #00ff00;
 }
 
-/* Ensure that the rows fit without scroll */
-tr {
-  height: 35px;
-  background-color: #444; /* Dark grey row background */
+.red {
+  color: #ff0000;
 }
 
-/* Style for rows on hover */
-tr:hover {
-  background-color: #555; /* Slightly lighter grey on hover */
+.icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+.announcement-panel {
+  position: relative;
+  width: 100%;
+  background-color: #222;
+  color: #fff;
+  padding: 10px 0;
+  overflow: hidden;
+}
+
+.announcement-text {
+  position: absolute;
+  white-space: nowrap;
+  animation: scroll-text 10s linear infinite;
+}
+@keyframes scroll-text {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
